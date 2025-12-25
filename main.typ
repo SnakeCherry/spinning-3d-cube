@@ -67,7 +67,7 @@ Then follow this table
 
 === Quaternion for $R_x$:
 $
-R_x (theta) =   mat(
+  R_x (theta) = mat(
     1, 0, 0;
     0, cos theta, - sin theta;
     0, sin theta, cos theta;
@@ -76,22 +76,58 @@ $
 
 Quaternion for $R_x (theta)$ = $(q_0, q_1, q_2, q_3)$
 $
-|q_0| = sqrt(frac(1 + 1 + cos theta + cos theta, 4))
+  |q_0| = sqrt(frac(1 + 1 + cos theta + cos theta, 4))
 $
 
 $
-|q_1| = sqrt(frac(1 + 1 - cos theta - cos theta, 4))
+  |q_1| = sqrt(frac(1 + 1 - cos theta - cos theta, 4))
 $
 
 $
-|q_2| = sqrt(frac(1 - 1 + cos theta - cos theta, 4))
+  |q_2| = sqrt(frac(1 - 1 + cos theta - cos theta, 4))
 $
 
 $
-|q_3| = sqrt(frac(1 - 1 - cos theta + cos theta, 4))
+  |q_3| = sqrt(frac(1 - 1 - cos theta + cos theta, 4))
 $
 
 The maximum value is 1, and $|q_0|=|q_1|$
+
+$
+  bold(q) = (cos frac(theta_x, 2) cos frac(theta_y, 2) cos frac(theta_z, 2) + sin frac(theta_x, 2) sin frac(theta_y, 2) sin frac(theta_z, 2)) \
+  + (sin frac(theta_x, 2) cos frac(theta_y, 2) cos frac(theta_z, 2) - cos frac(theta_x, 2) sin frac(theta_y, 2) sin frac(theta_z, 2))hat(i) \
+  + (cos frac(theta_x, 2) sin frac(theta_y, 2) cos frac(theta_z, 2) + sin frac(theta_x, 2) cos frac(theta_y, 2) sin frac(theta_z, 2))hat(j) \
+  + (cos frac(theta_x, 2) cos frac(theta_y, 2) sin frac(theta_z, 2) - sin frac(theta_x, 2) sin frac(theta_y, 2) cos frac(theta_z, 2))hat(k) \
+  \
+  bold(q^(-1)) = (w, -a hat(i), -b hat(j), -c hat(k)) \
+  #sym.therefore bold(q^(-1)) = (cos frac(theta_x, 2) cos frac(theta_y, 2) cos frac(theta_z, 2) + sin frac(theta_x, 2) sin frac(theta_y, 2) sin frac(theta_z, 2)) \ -(sin frac(theta_x, 2) cos frac(theta_y, 2) cos frac(theta_z, 2) - cos frac(theta_x, 2) sin frac(theta_y, 2) sin frac(theta_z, 2))hat(i) \ - (cos frac(theta_x, 2) sin frac(theta_y, 2) cos frac(theta_z, 2) + sin frac(theta_x, 2) cos frac(theta_y, 2) sin frac(theta_z, 2))hat(j) \ - (cos frac(theta_x, 2) cos frac(theta_y, 2) sin frac(theta_z, 2) - sin frac(theta_x, 2) sin frac(theta_y, 2) cos frac(theta_z, 2))hat(k)
+  \
+  p = (0, x, y, z) \
+$
+$
+  q dot p = 0 - ((sin frac(theta_x, 2) cos frac(theta_y, 2) cos frac(theta_z, 2) - cos frac(theta_x, 2) sin frac(theta_y, 2) sin frac(theta_z, 2))x \ + (cos frac(theta_x, 2) cos frac(theta_y, 2) cos frac(theta_z, 2) + sin frac(theta_x, 2) sin frac(theta_y, 2) sin frac(theta_z, 2))y \ + (cos frac(theta_x, 2) cos frac(theta_y, 2) sin frac(theta_z, 2) - sin frac(theta_x, 2) sin frac(theta_y, 2) cos frac(theta_z, 2))z) \ +
+  (cos frac(theta_x, 2) cos frac(theta_y, 2) cos frac(theta_z, 2) + sin frac(theta_x, 2) sin frac(theta_y, 2) sin frac(theta_z, 2)) vec(x, y, z) \ +
+  vec(
+    (cos frac(theta_x, 2) sin frac(theta_y, 2) cos frac(theta_z, 2) + sin frac(theta_x, 2) cos frac(theta_y, 2) sin frac(theta_z, 2))z -
+    (cos frac(theta_x, 2) cos frac(theta_y, 2) sin frac(theta_z, 2) - sin frac(theta_x, 2) sin frac(theta_y, 2) cos frac(theta_z, 2))y,
+    (cos frac(theta_x, 2) cos frac(theta_y, 2) sin frac(theta_z, 2) - sin frac(theta_x, 2) sin frac(theta_y, 2) cos frac(theta_z, 2))x - (cos frac(theta_x, 2) cos frac(theta_y, 2) cos frac(theta_z, 2) + sin frac(theta_x, 2) sin frac(theta_y, 2) sin frac(theta_z, 2))z,
+    (sin frac(theta_x, 2) cos frac(theta_y, 2) cos frac(theta_z, 2) - cos frac(theta_x, 2) sin frac(theta_y, 2) sin frac(theta_z, 2))y -
+    (cos frac(theta_x, 2) sin frac(theta_y, 2) cos frac(theta_z, 2) + sin frac(theta_x, 2) cos frac(theta_y, 2) sin frac(theta_z, 2))x
+  )
+  \
+$
+$
+    q p q^(-1) = 
+$
+
+
+
+
+
+
+
+
+
 
 
 
