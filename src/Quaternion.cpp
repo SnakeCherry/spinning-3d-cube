@@ -1,5 +1,4 @@
 #import "Quaternion.hpp"
-#include <cmath>
 
 // General form for Quaternion
 Quaternion::Quaternion(float w, Vec3 q1) : w_(w), q1_(q1) {}
