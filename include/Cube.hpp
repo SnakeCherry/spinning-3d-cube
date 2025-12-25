@@ -7,8 +7,7 @@
 class Cube {
 public:
   Cube(float cubeWidth, float incrementSpeed, float thetaX, float thetaY,
-       float thetaZ, Screen &screen);
-  // https://github.com/tarantino07/cube.c/blob/70393184924406941d34785542874e3c6d558807/cube.c
+       float thetaZ, Screen &screen, int distanceFromCam);
   void displayCube(char *buffer, float *zBuffer);
   void setAngles(float thetaX, float thetaY, float thetaZ);
 
@@ -21,6 +20,7 @@ private:
   Screen screen_;
   float horizontalOffset_;
   float reciprocalZ_;
+  int distanceFromCam_;
 
   std::vector<float> calculateProjectionPoints_(Vec3 cubePoint);
   void setReciprocalZ_(const float reciprocalZ);

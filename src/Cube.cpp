@@ -3,10 +3,11 @@
 #include <vector>
 
 Cube::Cube(float cubeWidth, float incrementSpeed, float thetaX, float thetaY,
-           float thetaZ, Screen &screen)
+           float thetaZ, Screen &screen, int distanceFromCam)
     : cubeWidth_(cubeWidth), incrementSpeed_(incrementSpeed), thetaX_(thetaX),
       thetaY_(thetaY), thetaZ_(thetaZ), screen_(screen),
-      horizontalOffset_(-2 * cubeWidth), reciprocalZ_(0.0f) {}
+      horizontalOffset_(-2 * cubeWidth), reciprocalZ_(0.0f),
+      distanceFromCam_(distanceFromCam) {}
 
 void Cube::setReciprocalZ_(const float reciprocalZ) {
   reciprocalZ_ = reciprocalZ;
@@ -14,9 +15,9 @@ void Cube::setReciprocalZ_(const float reciprocalZ) {
 }
 
 void Cube::setAngles(float thetaX, float thetaY, float thetaZ) {
-    thetaX_ = thetaX;
-    thetaY_ = thetaY;
-    thetaZ_ = thetaZ;
+  thetaX_ = thetaX;
+  thetaY_ = thetaY;
+  thetaZ_ = thetaZ;
 }
 
 void Cube::placeIntoBuffer_(float xProj, float yProj, int ch, char *buffer,
@@ -25,7 +26,8 @@ void Cube::placeIntoBuffer_(float xProj, float yProj, int ch, char *buffer,
   int y = static_cast<int>(yProj);
   float screenWidth = screen_.getScreenWidth();
   float screenHeight = screen_.getScreenHeight();
-  if (x < 0 || x >= screenWidth || y < 0 || y >= screenHeight) return;
+  if (x < 0 || x >= screenWidth || y < 0 || y >= screenHeight)
+    return;
 
   int idx = x + y * screenWidth;
   if (reciprocalZ_ > zBuffer[idx]) {
@@ -37,11 +39,11 @@ void Cube::placeIntoBuffer_(float xProj, float yProj, int ch, char *buffer,
 }
 
 std::vector<float> Cube::calculateProjectionPoints_(Vec3 cubePoint) {
+  // 40.0f is arbitrary. Try different values to see what works
   float K1 = 40.0f;
-  float distanceFromCam = 100;
   Quaternion rotationQ = {thetaX_, thetaY_, thetaZ_};
   Vec3 rotatedVec = rotationQ.rotate(cubePoint);
-  rotatedVec.setZ(rotatedVec.getZ() + distanceFromCam);
+  rotatedVec.setZ(rotatedVec.getZ() + distanceFromCam_);
   setReciprocalZ_(1 / rotatedVec.getZ());
 
   float xProjected = (screen_.getScreenWidth() / 2 + horizontalOffset_ +

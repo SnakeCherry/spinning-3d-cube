@@ -14,15 +14,6 @@ public:
 private:
   float w_;
   Vec3 q1_;
-
-  Quaternion conjugate_();
-
-  // What do we need to do?
-  //
-  /**
-   * We take in a vector, change it into a quaternion
-   * Apply first transformation to it
-   */
 };
 
 #endif
