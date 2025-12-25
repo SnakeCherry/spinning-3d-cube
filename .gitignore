@@ -1,3 +1,4 @@
 .jj
 .git
 out/*
+.clangd

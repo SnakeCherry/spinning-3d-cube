@@ -11,6 +11,9 @@ float Vec3::getY() const {
 float Vec3::getZ() const {
     return z_;
 }
+void Vec3::setZ(float newZ) {
+    z_ = newZ;
+}
 
 float Vec3::dotProduct(const Vec3 &q2Vec) const {
   return x_ * q2Vec.x_ + y_ * q2Vec.y_ + z_ * q2Vec.z_;

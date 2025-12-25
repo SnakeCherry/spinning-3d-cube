@@ -1,6 +1,7 @@
 set (SRC_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/Vector.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Quaternion.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Screen.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Cube.cpp
 )
 

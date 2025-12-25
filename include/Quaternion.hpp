@@ -9,12 +9,12 @@ public:
   // Quaternion from Euler Angles
   Quaternion(float theta_x, float theta_y, float theta_z);
   Quaternion eulerToQuat(float theta_x, float theta_y, float theta_z);
+  Vec3 rotate(const Vec3 &transformVec) const;
 
 private:
   float w_;
   Vec3 q1_;
 
-  Vec3 rotate(const Vec3 &transformVec) const;
   Quaternion conjugate_();
 
   // What do we need to do?
