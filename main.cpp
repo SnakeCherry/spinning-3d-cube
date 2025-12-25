@@ -7,19 +7,19 @@
 
 int main() {
   std::cout << "\x1b[2J"; // Escape character to clear screen
-  Screen screen(160, 44);
+  Screen screen(800, 200);
   char buffer[static_cast<unsigned long>(screen.getScreenWidth() *
                                          screen.getScreenHeight())];
   float zBuffer[static_cast<unsigned long>(screen.getScreenWidth() *
                                            screen.getScreenHeight())];
-  int backgroundASCIICode = '.';
-  int distanceFromCam = 100;
+  int backgroundASCIICode = ' ';
+  int distanceFromCam = 200;
   float thetaX = 0.0f;
   float thetaY = 0.0f;
   float thetaZ = 0.0f;
   int screenWidth = screen.getScreenWidth();
   int screenHeight = screen.getScreenHeight();
-  Cube cube = {20, 0.6, thetaX, thetaY, thetaZ, screen};
+  Cube cube = {40, 0.6, thetaX, thetaY, thetaZ, screen};
 
   while (true) {
     std::memset(buffer, backgroundASCIICode, screenWidth * screenHeight);

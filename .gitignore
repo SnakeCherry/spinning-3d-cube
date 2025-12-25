@@ -2,3 +2,6 @@
 .git
 out/*
 .clangd
+.DS_Store
+notes/cube.*
+notes/

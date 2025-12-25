@@ -13,6 +13,9 @@ Quaternion Quaternion::eulerToQuat(float theta_x, float theta_y,
   float cosX = cos(theta_x / 2);
   float cosY = cos(theta_y / 2);
   float cosZ = cos(theta_z / 2);
+
+  // Quaternion initialisation for rotation through all 3 axes
+  // q = q_z * q_y * q_x
   float w = (sinX * sinY * sinZ + cosX * cosY * cosZ);
 
   float xCoord = (sinX * cosY * cosZ - cosX * sinY * sinZ);
