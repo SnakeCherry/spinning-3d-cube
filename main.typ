@@ -120,10 +120,20 @@ $
     q p q^(-1) = 
 $
 
+#link("https://raw.org/proof/quaternion-from-two-vectors/")
+#link("qute://pdfjs/web/viewer.html?filename=tmp2v0d_7np_ch_quaternions.pdf&file=&source=https://math.umd.edu/~immortal/MATH431/book/ch_quaternions.pdf")
 
+#pagebreak()
 
+Main formula used is $qpq^(-1)$
+$q$ is the rotation quaternion, so we are converting from eulerian angles to Quaternion
+Therefore derive that for $q$ first.
+So
+$q_"rotate"  = q_z * q_y * q_x$
+Work right to left so $(q_y)(q_x)$ then do $(q_z)$ on the product of that
+Apply the multiplication formula
 
-
+Then simplify the multiplication formula for use with unit vectors and rotations
 
 
 

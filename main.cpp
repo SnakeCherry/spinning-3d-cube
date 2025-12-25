@@ -1,4 +1,3 @@
-#include "Quaternion.hpp"
 #include <iostream>
 
 int main() {
